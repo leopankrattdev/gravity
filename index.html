@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravity Hotels & Resorts — Luxury Red Sea Stay</title>
+    <style>
+        :root {
+            --bg-color: #f6f6f4;
+            --text-primary: #121316;
+            --text-muted: #6e7178;
+            --accent-dark: #111111;
+            --accent-gold: #c5a059;
+            --card-bg: #ffffff;
+            --line-color: rgba(0, 0, 0, 0.05);
+            --border-radius: 16px;
+            --pill-radius: 999px;
+            --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        [dir="rtl"] {
+            --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Continuous Architectural Lines Grid */
+        .bg-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            display: flex;
+            justify-content: space-around;
+            max-width: 1400px;
+            margin: 0 auto;
+            right: 0;
+        }
+
+        .bg-line {
+            width: 1px;
+            height: 100%;
+            background-color: var(--line-color);
+        }
+
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Luxury Logo Component */
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #ffffff;
+            transition: var(--transition);
+        }
+
+        .logo-text {
+            font-family: 'Cinzel', 'Georgia', serif;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .logo-star {
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo:hover .logo-star {
+            transform: rotate(45deg);
+            transition: transform 0.4s ease;
+        }
+
+        /* Buttons & UI Elements */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: var(--pill-radius);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            text-decoration: none;
+            gap: 8px;
+        }
+
+        .btn-dark {
+            background: var(--accent-dark);
+            color: #ffffff;
+        }
+
+        .btn-dark:hover {
+            background: #2a2b30;
+            transform: translateY(-2px);
+        }
+
+        .btn-light {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-primary);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-light:hover {
+            background: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            background: transparent;
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(0,0,0,0.04);
+        }
+
+        .pill-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 14px;
+            border-radius: var(--pill-radius);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            font-size: 13px;
+            color: var(--text-primary);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 16px;
+            height: 92vh;
+            min-height: 650px;
+        }
+
+        .hero-card {
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('./uploads/1.webp');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 32px 40px;
+            color: #ffffff;
+        }
+
+        .hero-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hero-nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-pills {
+            display: flex;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(16px);
+            padding: 4px;
+            border-radius: var(--pill-radius);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            padding: 8px 18px;
+            font-size: 14px;
+            border-radius: var(--pill-radius);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Custom Language Switcher Dropdown */
+        .custom-lang-dropdown {
+            position: relative;
+            z-index: 100;
+        }
+
+        .lang-trigger {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(16px);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: var(--pill-radius);
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .lang-trigger:hover {
+            background: rgba(0, 0, 0, 0.6);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .lang-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: rgba(18, 19, 22, 0.92);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 6px;
+            min-width: 120px;
+            display: none;
+            flex-direction: column;
+            gap: 2px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        [dir="rtl"] .lang-menu {
+            right: auto;
+            left: 0;
+        }
+
+        .lang-menu.open {
+            display: flex;
+            animation: fadeIn 0.2s ease-out;
+        }
+
+        .lang-option {
+            padding: 8px 14px;
+            border-radius: 10px;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .lang-option:hover, .lang-option.active {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Custom Styled Form Elements */
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .custom-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .custom-input-wrapper select,
+        .custom-input-wrapper input {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            background: #fcfcfb;
+            outline: none;
+            font-size: 14px;
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: var(--transition);
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .custom-input-wrapper select:focus,
+        .custom-input-wrapper input:focus {
+            border-color: var(--accent-gold);
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 16px;
+            pointer-events: none;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+        }
+
+        [dir="rtl"] .input-icon {
+            right: auto;
+            left: 16px;
+        }
+
+        .hero-content {
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 12px;
+            letter-spacing: 0.2px;
+        }
+
+        .hero-title {
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 400;
+            line-height: 1.1;
+            max-width: 650px;
+            letter-spacing: -1.5px;
+        }
+
+        .hero-bottom {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .search-pill {
+            background: rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: var(--pill-radius);
+            padding: 8px 8px 8px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .search-pill input {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            outline: none;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .search-pill input::placeholder {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .search-btn {
+            background: #ffffff;
+            color: #000;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .search-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Welcome & 6-Photo Section */
+        .section {
+            padding: 50px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 56px auto;
+        }
+
+        .section-tag {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 38px;
+            font-weight: 400;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .photo-grid-6 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .grid-photo-card {
+            border-radius: 20px;
+            overflow: hidden;
+            height: 260px;
+            position: relative;
+        }
+
+        .grid-photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .grid-photo-card:hover img {
+            transform: scale(1.06);
+        }
+
+        /* Offers Grid Section */
+        .offers-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .offer-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+        }
+
+        .offer-img-wrapper {
+            position: relative;
+            height: 180px;
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 14px;
+        }
+
+        .offer-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: var(--pill-radius);
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        [dir="rtl"] .discount-badge {
+            left: auto;
+            right: 10px;
+        }
+
+        .offer-info h4 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .offer-info p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .offer-action {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 8px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .offer-price {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .view-link {
+            font-size: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        /* Spotlight Feature Section */
+        .spotlight-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 24px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 32px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.04);
+            align-items: center;
+        }
+
+        .spotlight-media {
+            position: relative;
+            height: 420px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .spotlight-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .spotlight-location-tag {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: var(--pill-radius);
+            font-size: 12px;
+        }
+
+        .spotlight-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .rating-box {
+            background: #111;
+            color: #fff;
+            padding: 18px 22px;
+            border-radius: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rating-num {
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        .rating-label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .feature-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .feature-tag {
+            background: #f0f0ed;
+            padding: 6px 14px;
+            border-radius: var(--pill-radius);
+            font-size: 12px;
+            color: #444;
+        }
+
+        /* FAQ Section */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: var(--transition);
+        }
+
+        .faq-question {
+            font-size: 16px;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-top: 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 150px;
+            margin-top: 12px;
+        }
+
+        .faq-image {
+            height: 480px;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .faq-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* VIP Banner */
+        .insiders-banner {
+            border-radius: 28px;
+            overflow: hidden;
+            position: relative;
+            height: 320px;
+            background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 32px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0d0e10;
+            color: #ffffff;
+            padding: 80px 0 32px 0;
+            border-top-left-radius: 32px;
+            border-top-right-radius: 32px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            color: #888;
+            font-size: 14px;
+            max-width: 320px;
+            margin-bottom: 24px;
+        }
+
+        .footer-col h5 {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #aaa;
+            font-weight: 500;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Booking Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.65);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            width: 90%;
+            max-width: 520px;
+            border-radius: 24px;
+            padding: 32px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #f0f0ed;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        [dir="rtl"] .close-modal {
+            right: auto;
+            left: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 6px;
+            color: var(--text-muted);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            outline: none;
+            font-size: 14px;
+        }
+
+        /* Mobile Adaptivity */
+        @media (max-width: 992px) {
+            .offers-grid { grid-template-columns: repeat(2, 1fr); }
+            .photo-grid-6 { grid-template-columns: repeat(2, 1fr); }
+            .spotlight-card { grid-template-columns: 1fr; }
+            .faq-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .hero-card { padding: 20px; }
+            .hero-nav { display: none; }
+            .offers-grid { grid-template-columns: 1fr; }
+            .photo-grid-6 { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .hero-section { padding: 16px;height: 60vh;min-height: 600px; }
+            .section { padding: 50px 0; }
+            .offers-top { flex-direction: column; }
+            .offer-info h4 { font-size: 20px; }
+            .btn { margin-top: 20px; }
+            .spotlight-media { height: 220px; }
+            .faq-image { height: 220px; }
+        }
+        [dir="rtl"] body { text-align: right; }
+        [dir="rtl"] .hero-header, [dir="rtl"] .hero-nav, [dir="rtl"] .offers-top, [dir="rtl"] .footer-bottom { direction: rtl; }
+        [dir="rtl"] .lang-menu { right: auto; left: 0; }
+        [dir="rtl"] .faq-question, [dir="rtl"] .offer-info, [dir="rtl"] .footer-col { text-align: right; }
+        [dir="rtl"] .input-icon { right: auto; left: 16px; }
+    </style>
+</head>
+<body>
+
+    <!-- Architectural Background Lines -->
+    <div class="bg-lines">
+        <div class="bg-line"></div>
+        <div class="bg-line"></div>
+        <div class="bg-line"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-card">
+            <div class="hero-header">
+                <a href="#" class="logo">
+                    <span class="logo-text">Gravity</span>
+                </a>
+                <div class="hero-nav">
+                    <div class="nav-pills">
+                        <a href="#about" class="nav-link" data-i18n="nav_about">About Us</a>
+                        <a href="#offers" class="nav-link" data-i18n="nav_offers">Offers</a>
+                        <a href="#dining" class="nav-link" data-i18n="nav_dining">Dining</a>
+                    </div>
+                    
+                    <!-- Custom Language Dropdown -->
+                    <div class="custom-lang-dropdown">
+                        <div class="lang-trigger" onclick="toggleLangMenu()">
+                            <span id="currentLangLabel">EN</span>
+                            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L5 5L9 1"/></svg>
+                        </div>
+                        <div class="lang-menu" id="langMenu">
+                            <div class="lang-option active" onclick="selectLanguage('en', this)">English <span>EN</span></div>
+                            <div class="lang-option" onclick="selectLanguage('ru', this)">Русский <span>RU</span></div>
+                            <div class="lang-option" onclick="selectLanguage('de', this)">Deutsch <span>DE</span></div>
+                            <div class="lang-option" onclick="selectLanguage('ar', this)">العربية <span>AR</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-content">
+                <div class="hero-subtitle" data-i18n="hero_subtitle">— let's make your stay unforgettable!</div>
+                <h1 class="hero-title" data-i18n="hero_title">Not just a hotel, but a place that feels like home</h1>
+            </div>
+
+            <div class="hero-bottom">
+                <div class="search-pill">
+                    <input type="text" placeholder="Search Destination..." data-i18n-ph="search_ph">
+                    <button class="search-btn" onclick="openBookingModal()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome & 6-Photo Modular Grid -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="about_tag">About Us</span>
+                <h2 class="section-title" data-i18n="about_title">Welcome to Gravity</h2>
+                <p class="section-desc" data-i18n="about_desc">From luxurious suites to personalized Red Sea experiences, Gravity Hotel is designed to make every guest feel at home. Discover elegance and warmth.</p>
+            </div>
+
+            <div class="photo-grid-6">
+                <div class="grid-photo-card"><img src="./uploads/2.webp" alt="Gravity Pool"></div>
+                <div class="grid-photo-card"><img src="./uploads/3.webp" alt="Resort Architecture"></div>
+                <div class="grid-photo-card"><img src="./uploads/4.webp" alt="Luxury Suite"></div>
+                <div class="grid-photo-card"><img src="./uploads/5.webp" alt="Beach View"></div>
+                <div class="grid-photo-card"><img src="./uploads/6.webp" alt="Sunset Lounge"></div>
+                <div class="grid-photo-card"><img src="./uploads/7.webp" alt="Spa & Wellness"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Limited-Time Offers Section -->
+    <section class="section" id="offers">
+        <div class="container">
+            <div class="offers-top">
+                <div>
+                    <span class="section-tag" data-i18n="offers_tag">Special Deals</span>
+                    <h2 class="section-title" data-i18n="offers_title" style="margin-bottom:0">Limited-Time Offers You Can't Miss!</h2>
+                </div>
+                <button class="btn btn-dark" onclick="openBookingModal()" data-i18n="book_now_btn">Book Now</button>
+            </div>
+
+            <div class="offers-grid">
+                <!-- 4 Property Cards -->
+                <div class="offer-card">
+                    <div class="offer-img-wrapper">
+                        <span class="discount-badge" data-i18n="discount_30">30% OFF</span>
+                        <img src="./uploads/10.webp" alt="Aqua Park Resort">
+                    </div>
+                    <div class="offer-info">
+                        <h4 data-i18n="offer_aqua">Aqua Park</h4>
+                        <p data-i18n="location_hurghada">📍 Hurghada, Egypt</p>
+                    </div>
+                </div>
+
+                <div class="offer-card">
+                    <div class="offer-img-wrapper">
+                        <span class="discount-badge" data-i18n="discount_12">12% OFF</span>
+                        <img src="./uploads/17.webp" alt="Sahl Hasheesh Suite">
+                    </div>
+                    <div class="offer-info">
+                        <h4 data-i18n="offer_spa">SPA & Wellness</h4>
+                        <p data-i18n="location_red_sea">📍 Red Sea Coast</p>
+                    </div>
+                </div>
+
+                <div class="offer-card">
+                    <div class="offer-img-wrapper">
+                        <span class="discount-badge" data-i18n="discount_15">15% OFF</span>
+                        <img src="./uploads/18.webp" alt="Royal Crest">
+                    </div>
+                    <div class="offer-info">
+                        <h4 data-i18n="offer_restaurant">Restaurant</h4>
+                        <p data-i18n="location_private_bay">📍 Private Bay</p>
+                    </div>
+                </div>
+
+                <div class="offer-card">
+                    <div class="offer-img-wrapper">
+                        <span class="discount-badge" data-i18n="discount_25">25% OFF</span>
+                        <img src="./uploads/16.webp" alt="Lagoon View">
+                    </div>
+                    <div class="offer-info">
+                        <h4 data-i18n="offer_room">Room</h4>
+                        <p data-i18n="location_beachfront">📍 Beach Front</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spotlight Section -->
+    <section class="section">
+        <div class="container">
+            <div class="spotlight-card">
+                <div class="spotlight-media">
+                    <img src="./uploads/19.webp" alt="Spotlight Suite">
+                    <span class="spotlight-location-tag">Hurghada, Sahl Hasheesh</span>
+                </div>
+                <div class="spotlight-details">
+                    <div>
+                        <span class="section-tag" data-i18n="featured_property">Featured Property</span>
+                        <h3 style="font-size: 28px; font-weight: 500; margin-bottom: 8px;" data-i18n="featured_title">Gravity Royal Suite & Spa</h3>
+                        <p style="color: var(--text-muted); font-size: 14px;" data-i18n="featured_desc">Whether you're seeking a romantic getaway or a family escape, our premier suite offers private sea views and unmatched service.</p>
+                    </div>
+
+                    <div class="rating-box">
+                        <div>
+                            <div class="rating-num">5.0 ★</div>
+                            <div class="rating-label" data-i18n="rating_label">Guest Satisfaction Rating</div>
+                        </div>
+                        <button class="btn btn-light" onclick="openBookingModal('Gravity Hotel Sahl Hasheesh')" data-i18n="book_now_btn">Book Now</button>
+                    </div>
+
+                    <div class="feature-tags">
+                        <span class="feature-tag" data-i18n="tag_ocean">Ocean View</span>
+                        <span class="feature-tag" data-i18n="tag_pool">Private Pool</span>
+                        <span class="feature-tag" data-i18n="tag_spa">Spa Included</span>
+                        <span class="feature-tag" data-i18n="tag_all_inclusive">All-Inclusive</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container">
+            <div class="faq-grid">
+                <div>
+                    <span class="section-tag" data-i18n="faq_tag">FAQ</span>
+                    <h2 class="section-title" data-i18n="faq_title">Got Questions? We've Got Answers!</h2>
+                    
+                    <div class="faq-item active" onclick="toggleFaq(this)">
+                        <div class="faq-question"><span data-i18n="faq_q1">What is included in All-Inclusive?</span><span>+</span></div>
+                        <div class="faq-answer" data-i18n="faq_a1">Our All-Inclusive package covers all meals at our main buffet restaurant, snacks throughout the day, and selected soft and alcoholic beverages.</div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question"><span data-i18n="faq_q2">How far is the resort from Hurghada Airport?</span><span>+</span></div>
+                        <div class="faq-answer" data-i18n="faq_a2">Gravity Hotel Sahl Hasheesh is conveniently located just a 20-minute drive from Hurghada International Airport.</div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question"><span data-i18n="faq_q3">Are aqua park slides free for guests?</span><span>+</span></div>
+                        <div class="faq-answer" data-i18n="faq_a3">Yes, all staying guests enjoy complimentary full access to all aqua park slides and pools.</div>
+                    </div>
+                </div>
+                <div class="faq-image">
+                    <img src="./uploads/11.webp" alt="Resort Lounge">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Banner -->
+    <section class="section" style="padding-top:0">
+        <div class="container">
+            <div class="insiders-banner">
+                <h2 style="font-size: 32px; font-weight: 400; margin-bottom: 12px;" data-i18n="club_title">Join the Gravity Insiders Club!</h2>
+                <p style="font-size: 14px; opacity: 0.8; max-width: 500px; margin-bottom: 24px;" data-i18n="club_desc">Subscribe to receive exclusive secret offers, early room upgrades, and personalized discounts.</p>
+                <button class="btn btn-light" onclick="openBookingModal()" data-i18n="join_now_btn">Join Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo" style="margin-bottom: 16px; display: inline-flex;">
+                        <span class="logo-text">Gravity</span>
+                    </a>
+                    <p data-i18n="footer_desc">Redefining luxury stays on the Red Sea. Unmatched hospitality, world-class amenities, and lifelong memories.</p>
+                </div>
+                <div class="footer-col">
+                    <h5 data-i18n="footer_navigation">Navigation</h5>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#offers">Offers</a></li>
+                        <li><a href="#dining">Dining</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5 data-i18n="footer_resorts">Resorts</h5>
+                    <ul>
+                        <li><a href="#" data-i18n="footer_hurghada">Hurghada Aqua Park</a></li>
+                        <li><a href="#" data-i18n="footer_sahl">Sahl Hasheesh Resort</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5 data-i18n="footer_contact">Contact</h5>
+                    <ul>
+                        <li><a href="#">info@hotelsgravity.com</a></li>
+                        <li><a href="#">+20 123 456 789</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span data-i18n="copyright">© 2026 Gravity Hotels & Resorts. All rights reserved.</span>
+                <span data-i18n="legal">Privacy Policy · Terms of Service</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Modal with Custom Styled Form Controls -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeBookingModal()">✕</button>
+            <h3 style="font-size: 22px; font-weight: 500; margin-bottom: 24px;" data-i18n="modal_title">Reserve Your Stay</h3>
+            <form onsubmit="submitBooking(event)">
+                <div class="form-group">
+                    <label data-i18n="modal_resort">Select Resort</label>
+                    <div class="custom-input-wrapper">
+                        <select id="modalResortSelect">
+                            <option value="Gravity Aqua Park Hurghada" data-i18n="resort_hurghada">Gravity Aqua Park Hurghada</option>
+                            <option value="Gravity Hotel Sahl Hasheesh" data-i18n="resort_sahl">Gravity Hotel Sahl Hasheesh</option>
+                        </select>
+                        <span class="input-icon">
+                            <svg width="12" height="8" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L5 5L9 1"/></svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-i18n="modal_checkin">Check-In</label>
+                    <div class="custom-input-wrapper">
+                        <input type="date" required>
+                        <span class="input-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-i18n="modal_checkout">Check-Out</label>
+                    <div class="custom-input-wrapper">
+                        <input type="date" required>
+                        <span class="input-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-i18n="modal_guests">Guests</label>
+                    <div class="custom-input-wrapper">
+                        <select>
+                            <option data-i18n="guest_1">1 Adult</option>
+                            <option selected data-i18n="guest_2">2 Adults</option>
+                            <option data-i18n="guest_2_child">2 Adults + 1 Child</option>
+                        </select>
+                        <span class="input-icon">
+                            <svg width="12" height="8" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L5 5L9 1"/></svg>
+                        </span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-dark" style="width: 100%; margin-top: 16px; padding: 14px;" data-i18n="modal_confirm">Confirm Reservation</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Translations & Custom Interactive Script -->
+    <script>
+        const translations = {
+            en: {
+                nav_about: "About Us",
+                nav_offers: "Offers",
+                nav_dining: "Dining",
+                hero_subtitle: "— let's make your stay unforgettable!",
+                hero_title: "Not just a hotel, but a place that feels like home",
+                search_ph: "Search Destination...",
+                about_tag: "About Us",
+                about_title: "Welcome to Gravity",
+                about_desc: "From luxurious suites to personalized Red Sea experiences, Gravity Hotel is designed to make every guest feel at home.",
+                offers_tag: "Special Deals",
+                offers_title: "Limited-Time Offers You Can't Miss!",
+                book_now_btn: "Book Now",
+                join_now_btn: "Join Now",
+                faq_title: "Got Questions? We've Got Answers!",
+                modal_title: "Reserve Your Stay",
+                modal_resort: "Select Resort",
+                modal_checkin: "Check-In Date",
+                modal_checkout: "Check-Out Date",
+                modal_guests: "Guests",
+                modal_confirm: "Confirm Reservation",
+                discount_30: '30% OFF',
+                discount_12: '12% OFF',
+                discount_15: '15% OFF',
+                discount_25: '25% OFF',
+                offer_aqua: 'Aqua Park',
+                offer_spa: 'SPA & Wellness',
+                offer_restaurant: 'Restaurant',
+                offer_room: 'Room',
+                location_hurghada: '📍 Hurghada, Egypt',
+                location_red_sea: '📍 Red Sea Coast',
+                location_private_bay: '📍 Private Bay',
+                location_beachfront: '📍 Beach Front',
+                featured_property: 'Featured Property',
+                featured_title: 'Gravity Royal Suite & Spa',
+                featured_desc: "Whether you're seeking a romantic getaway or a family escape, our premier suite offers private sea views and unmatched service.",
+                rating_label: 'Guest Satisfaction Rating',
+                tag_ocean: 'Ocean View',
+                tag_pool: 'Private Pool',
+                tag_spa: 'Spa Included',
+                tag_all_inclusive: 'All-Inclusive',
+                faq_tag: 'FAQ',
+                faq_q1: 'What is included in All-Inclusive?',
+                faq_a1: 'Our All-Inclusive package covers all meals at our main buffet restaurant, snacks throughout the day, and selected soft and alcoholic beverages.',
+                faq_q2: 'How far is the resort from Hurghada Airport?',
+                faq_a2: 'Gravity Hotel Sahl Hasheesh is conveniently located just a 20-minute drive from Hurghada International Airport.',
+                faq_q3: 'Are aqua park slides free for guests?',
+                faq_a3: 'Yes, all staying guests enjoy complimentary full access to all aqua park slides and pools.',
+                club_title: 'Join the Gravity Insiders Club!',
+                club_desc: 'Subscribe to receive exclusive secret offers, early room upgrades, and personalized discounts.',
+                footer_desc: 'Redefining luxury stays on the Red Sea. Unmatched hospitality, world-class amenities, and lifelong memories.',
+                footer_navigation: 'Navigation',
+                footer_resorts: 'Resorts',
+                footer_contact: 'Contact',
+                footer_hurghada: 'Hurghada Aqua Park',
+                footer_sahl: 'Sahl Hasheesh Resort',
+                copyright: '© 2026 Gravity Hotels & Resorts. All rights reserved.',
+                legal: 'Privacy Policy · Terms of Service',
+                resort_hurghada: 'Gravity Aqua Park Hurghada',
+                resort_sahl: 'Gravity Hotel Sahl Hasheesh',
+                guest_1: '1 Adult',
+                guest_2: '2 Adults',
+                guest_2_child: '2 Adults + 1 Child',
+                booking_alert: 'Booking request received! Confirmation will be sent shortly.',
+            },
+            ru: {
+                nav_about: "О нас",
+                nav_offers: "Акции",
+                nav_dining: "Рестораны",
+                hero_subtitle: "— сделаем ваш отдых незабываемым!",
+                hero_title: "Не просто отель, а место, где чувствуешь себя как дома",
+                search_ph: "Поиск направления...",
+                about_tag: "О нас",
+                about_title: "Добро пожаловать в Gravity",
+                about_desc: "От роскошных номеров до персонального сервиса на побережье Красного моря.",
+                offers_tag: "Специальные предложения",
+                offers_title: "Горящие предложения, которые нельзя упустить!",
+                book_now_btn: "Забронировать",
+                join_now_btn: "Присоединиться",
+                faq_title: "Есть вопросы? У нас есть ответы!",
+                modal_title: "Забронировать номер",
+                modal_resort: "Выберите отель",
+                modal_checkin: "Дата заезда",
+                modal_checkout: "Дата выезда",
+                modal_guests: "Гости",
+                modal_confirm: "Подтвердить бронирование",
+                discount_30: 'СКИДКА 30%',
+                discount_12: 'СКИДКА 12%',
+                discount_15: 'СКИДКА 15%',
+                discount_25: 'СКИДКА 25%',
+                offer_aqua: 'Аквапарк',
+                offer_spa: 'СПА и велнес',
+                offer_restaurant: 'Ресторан',
+                offer_room: 'Номер',
+                location_hurghada: '📍 Хургада, Египет',
+                location_red_sea: '📍 Побережье Красного моря',
+                location_private_bay: '📍 Уединённая бухта',
+                location_beachfront: '📍 Первая береговая линия',
+                featured_property: 'Рекомендуемый отель',
+                featured_title: 'Gravity Royal Suite & Spa',
+                featured_desc: 'Романтическое путешествие или семейный отдых — наши лучшие номера предлагают виды на море, уединение и безупречный сервис.',
+                rating_label: 'Оценка гостей',
+                tag_ocean: 'Вид на море',
+                tag_pool: 'Личный бассейн',
+                tag_spa: 'Посещение СПА',
+                tag_all_inclusive: 'Всё включено',
+                faq_tag: 'Вопросы и ответы',
+                faq_q1: 'Что входит в систему «Всё включено»?',
+                faq_a1: 'Пакет «Всё включено» охватывает все основные приёмы пищи в главном ресторане, закуски в течение дня, а также выбранные безалкогольные и алкогольные напитки.',
+                faq_q2: 'Как далеко отель находится от аэропорта Хургады?',
+                faq_a2: 'Gravity Hotel Sahl Hasheesh расположен примерно в 20 минутах езды от международного аэропорта Хургады.',
+                faq_q3: 'Пользование горками аквапарка бесплатное?',
+                faq_a3: 'Да, гости отеля могут бесплатно пользоваться всеми водными горками и бассейнами аквапарка.',
+                club_title: 'Вступайте в клуб Gravity Insiders!',
+                club_desc: 'Подпишитесь, чтобы получать эксклюзивные предложения, возможность раннего повышения категории номера и персональные скидки.',
+                footer_desc: 'Новый уровень роскошного отдыха на Красном море. Искреннее гостеприимство, первоклассные удобства и воспоминания на всю жизнь.',
+                footer_navigation: 'Навигация',
+                footer_resorts: 'Наши курорты',
+                footer_contact: 'Контакты',
+                footer_hurghada: 'Аквапарк в Хургаде',
+                footer_sahl: 'Курорт Сахль-Хашиш',
+                copyright: '© 2026 Gravity Hotels & Resorts. Все права защищены.',
+                legal: 'Политика конфиденциальности · Условия использования',
+                resort_hurghada: 'Gravity Aqua Park Hurghada',
+                resort_sahl: 'Gravity Hotel Sahl Hasheesh',
+                guest_1: '1 взрослый',
+                guest_2: '2 взрослых',
+                guest_2_child: '2 взрослых + 1 ребёнок',
+                booking_alert: 'Заявка на бронирование получена! Скоро с вами свяжутся для подтверждения.',
+            },
+            de: {
+                nav_about: "Über uns",
+                nav_offers: "Angebote",
+                nav_dining: "Gastronomie",
+                hero_subtitle: "— wir machen Ihren Aufenthalt unvergesslich!",
+                hero_title: "Nicht nur ein Hotel, sondern ein Zuhause",
+                search_ph: "Reiseziel suchen...",
+                about_tag: "Über uns",
+                about_title: "Willkommen im Gravity",
+                about_desc: "Von luxuriösen Suiten bis hin zu personalisierten Erlebnissen am Roten Meer.",
+                offers_tag: "Sonderangebote",
+                offers_title: "Zeitlich begrenzte Angebote!",
+                book_now_btn: "Jetzt buchen",
+                join_now_btn: "Jetzt beitreten",
+                faq_title: "Haben Sie Fragen? Wir haben Antworten!",
+                modal_title: "Aufenthalt reservieren",
+                modal_resort: "Resort auswählen",
+                modal_checkin: "Anreisedatum",
+                modal_checkout: "Abreisedatum",
+                modal_guests: "Gäste",
+                modal_confirm: "Reservierung bestätigen",
+                discount_30: '30 % RABATT',
+                discount_12: '12 % RABATT',
+                discount_15: '15 % RABATT',
+                discount_25: '25 % RABATT',
+                offer_aqua: 'Aquapark',
+                offer_spa: 'Spa & Wellness',
+                offer_restaurant: 'Restaurant',
+                offer_room: 'Zimmer',
+                location_hurghada: '📍 Hurghada, Ägypten',
+                location_red_sea: '📍 Rotes Meer',
+                location_private_bay: '📍 Private Bucht',
+                location_beachfront: '📍 Direkt am Strand',
+                featured_property: 'Besonderes Angebot',
+                featured_title: 'Gravity Royal Suite & Spa',
+                featured_desc: 'Ob romantischer Kurzurlaub oder Familienauszeit – unsere Premium-Suite bietet privaten Meerblick und erstklassigen Service.',
+                rating_label: 'Gästebewertung',
+                tag_ocean: 'Meerblick',
+                tag_pool: 'Privater Pool',
+                tag_spa: 'Spa inklusive',
+                tag_all_inclusive: 'All-inclusive',
+                faq_tag: 'FAQ',
+                faq_q1: 'Was ist im All-inclusive-Angebot enthalten?',
+                faq_a1: 'Unser All-inclusive-Paket umfasst alle Mahlzeiten im Hauptbuffetrestaurant, Snacks während des Tages sowie ausgewählte alkoholfreie und alkoholische Getränke.',
+                faq_q2: 'Wie weit ist das Resort vom Flughafen Hurghada entfernt?',
+                faq_a2: 'Das Gravity Hotel Sahl Hasheesh liegt nur etwa 20 Autominuten vom internationalen Flughafen Hurghada entfernt.',
+                faq_q3: 'Sind die Wasserrutschen im Aquapark kostenlos?',
+                faq_a3: 'Ja, Hotelgäste haben freien Zugang zu allen Wasserrutschen und Pools des Aquaparks.',
+                club_title: 'Werden Sie Mitglied im Gravity Insiders Club!',
+                club_desc: 'Erhalten Sie exklusive Angebote, frühzeitige Zimmer-Upgrades und persönliche Rabatte.',
+                footer_desc: 'Luxusaufenthalte am Roten Meer neu erleben. Außergewöhnliche Gastfreundschaft, erstklassige Ausstattung und Erinnerungen fürs Leben.',
+                footer_navigation: 'Navigation',
+                footer_resorts: 'Resorts',
+                footer_contact: 'Kontakt',
+                footer_hurghada: 'Hurghada Aquapark',
+                footer_sahl: 'Resort Sahl Hasheesh',
+                copyright: '© 2026 Gravity Hotels & Resorts. Alle Rechte vorbehalten.',
+                legal: 'Datenschutz · Nutzungsbedingungen',
+                resort_hurghada: 'Gravity Aqua Park Hurghada',
+                resort_sahl: 'Gravity Hotel Sahl Hasheesh',
+                guest_1: '1 Erwachsener',
+                guest_2: '2 Erwachsene',
+                guest_2_child: '2 Erwachsene + 1 Kind',
+                booking_alert: 'Ihre Buchungsanfrage ist eingegangen! Sie erhalten in Kürze eine Bestätigung.',
+            },
+            ar: {
+                nav_about: "من نحن",
+                nav_offers: "العروض",
+                nav_dining: "المطاعم",
+                hero_subtitle: "— لنجعل إقامتك لا تُنسى!",
+                hero_title: "ليس مجرد فندق، بل مكان تشعر فيه وكأنك في بيتك",
+                search_ph: "ابحث عن الوجهة...",
+                about_tag: "من نحن",
+                about_title: "مرحباً بكم في جرافيتي",
+                about_desc: "من الأجنحة الفاخرة إلى التجارب المخصصة على البحر الأحمر.",
+                offers_tag: "عروض خاصة",
+                offers_title: "عروض لفترة محدودة لا تفوتها!",
+                book_now_btn: "احجز الآن",
+                join_now_btn: "انضم الآن",
+                faq_title: "لديك أسئلة؟ لدينا الإجابات!",
+                modal_title: "احجز إقامتك",
+                modal_resort: "اختر المنتجع",
+                modal_checkin: "تاريخ الوصول",
+                modal_checkout: "تاريخ المغادرة",
+                modal_guests: "الضيوف",
+                modal_confirm: "تأكيد الحجز",
+                discount_30: 'خصم 30٪',
+                discount_12: 'خصم 12٪',
+                discount_15: 'خصم 15٪',
+                discount_25: 'خصم 25٪',
+                offer_aqua: 'مدينة الألعاب المائية',
+                offer_spa: 'السبا والعافية',
+                offer_restaurant: 'المطعم',
+                offer_room: 'الغرفة',
+                location_hurghada: '📍 الغردقة، مصر',
+                location_red_sea: '📍 ساحل البحر الأحمر',
+                location_private_bay: '📍 خليج خاص',
+                location_beachfront: '📍 على الشاطئ مباشرة',
+                featured_property: 'إقامة مميزة',
+                featured_title: 'جرافيتي رويال سويت وسبا',
+                featured_desc: 'سواء كنتم تبحثون عن عطلة رومانسية أو رحلة عائلية، يوفر جناحنا المميز إطلالات خاصة على البحر وخدمة استثنائية.',
+                rating_label: 'تقييم رضا الضيوف',
+                tag_ocean: 'إطلالة على البحر',
+                tag_pool: 'مسبح خاص',
+                tag_spa: 'يشمل السبا',
+                tag_all_inclusive: 'إقامة شاملة',
+                faq_tag: 'الأسئلة الشائعة',
+                faq_q1: 'ماذا تشمل باقة الإقامة الشاملة؟',
+                faq_a1: 'تشمل باقة الإقامة الشاملة جميع الوجبات في المطعم الرئيسي، والوجبات الخفيفة خلال اليوم، ومجموعة مختارة من المشروبات الغازية والكحولية.',
+                faq_q2: 'كم يبعد المنتجع عن مطار الغردقة؟',
+                faq_a2: 'يقع فندق جرافيتي سهل حشيش على بُعد حوالي 20 دقيقة بالسيارة من مطار الغردقة الدولي.',
+                faq_q3: 'هل استخدام منزلقات الألعاب المائية مجاني للنزلاء؟',
+                faq_a3: 'نعم، يتمتع جميع نزلاء الفندق بإمكانية استخدام جميع منزلقات ومسابح الألعاب المائية مجاناً.',
+                club_title: 'انضموا إلى نادي جرافيتي إنسايدرز!',
+                club_desc: 'اشتركوا لتصلكم عروض حصرية وترقيات مبكرة للغرف وخصومات مخصصة.',
+                footer_desc: 'نعيد تعريف الإقامة الفاخرة على البحر الأحمر، مع ضيافة استثنائية ومرافق عالمية وذكريات تدوم مدى الحياة.',
+                footer_navigation: 'التنقل',
+                footer_resorts: 'المنتجعات',
+                footer_contact: 'اتصل بنا',
+                footer_hurghada: 'مدينة ألعاب الغردقة المائية',
+                footer_sahl: 'منتجع سهل حشيش',
+                copyright: '© 2026 جرافيتي للفنادق والمنتجعات. جميع الحقوق محفوظة.',
+                legal: 'سياسة الخصوصية · شروط الخدمة',
+                resort_hurghada: 'جرافيتي أكوا بارك الغردقة',
+                resort_sahl: 'فندق جرافيتي سهل حشيش',
+                guest_1: 'شخص بالغ واحد',
+                guest_2: 'شخصان بالغان',
+                guest_2_child: 'شخصان بالغان + طفل',
+                booking_alert: 'تم استلام طلب الحجز! سيتم إرسال التأكيد قريباً.',
+            }
+        };
+
+        function toggleLangMenu() {
+            document.getElementById('langMenu').classList.toggle('open');
+        }
+
+        function selectLanguage(lang, option) {
+            if (!translations[lang]) return;
+            document.getElementById('currentLangLabel').textContent = lang.toUpperCase();
+            document.querySelectorAll('.lang-option').forEach(opt => opt.classList.remove('active'));
+            if (option) option.classList.add('active');
+            document.getElementById('langMenu').classList.remove('open');
+            changeLanguage(lang);
+            try { localStorage.setItem('gravity-language', lang); } catch (e) {}
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            const dropdown = document.querySelector('.custom-lang-dropdown');
+            if (dropdown && !dropdown.contains(e.target)) {
+                document.getElementById('langMenu').classList.remove('open');
+            }
+        });
+
+        function changeLanguage(lang) {
+            const dictionary = translations[lang] || translations.en;
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.getElementById('currentLangLabel').textContent = lang.toUpperCase();
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (Object.prototype.hasOwnProperty.call(dictionary, key)) el.textContent = dictionary[key];
+            });
+            document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+                const key = el.getAttribute('data-i18n-ph');
+                if (Object.prototype.hasOwnProperty.call(dictionary, key)) el.placeholder = dictionary[key];
+            });
+            document.querySelectorAll('.lang-option').forEach(opt => {
+                opt.classList.toggle('active', opt.querySelector('span')?.textContent.trim().toLowerCase() === lang);
+            });
+        }
+
+        function openBookingModal(resortName) {
+            if(resortName) {
+                document.getElementById('modalResortSelect').value = resortName;
+            }
+            document.getElementById('bookingModal').classList.add('active');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.remove('active');
+        }
+
+        function submitBooking(e) {
+            e.preventDefault();
+            alert((translations[document.documentElement.lang] || translations.en).booking_alert);
+            closeBookingModal();
+        }
+
+        function toggleFaq(el) {
+            el.classList.toggle('active');
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            let savedLanguage = 'en';
+            try { const saved = localStorage.getItem('gravity-language'); if (saved && translations[saved]) savedLanguage = saved; } catch (e) {}
+            changeLanguage(savedLanguage);
+        });
+    </script>
+</body>
+</html>
